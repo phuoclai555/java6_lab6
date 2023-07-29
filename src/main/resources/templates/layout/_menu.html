@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+
+                <a class="nav-link" th:href="@{/home/index}">[(#{menu.home})]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home/about}">[(#{menu.about})]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home/admin}">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home/user}">User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home/auth}">guest</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home/thymeleaf1}">Thymeleaf1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home/thymeleaf2}">Thymeleaf2</a>
+            </li>
+            <li class="nav-item">
+                <th:block th:unless="${request.remoteUser}">
+
+                        <a class="nav-link" th:href="@{/auth/login/form}">Login</a>
+
+                </th:block>
+                <th:block th:if="${request.remoteUser}">
+
+                    <a class="nav-link"  th:href="@{/auth/logoff}">Logout</a>
+
+                </th:block>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            [<a class="nav-link" href="?lang=vi">Tieng viet</a>]
+            [<a class="nav-link" href="?lang=en">English</a>]
+        </form>
+    </div>
+</nav>
+</body>
+</html>

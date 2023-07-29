@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(view)">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+
+<style>
+    i{
+        color: red;
+        font-size: 18px;
+    }
+</style>
+<body>
+
+    <header>
+        <img th:src="@{/assets/img/logo.png}" style="width: 150px">
+    </header>
+    <hr>
+    <nav th:insert="~{/layout/_menu.html::navbar}"></nav>
+    <hr>
+    <main th:replace="${view}"></main>
+    <hr>
+    <hr>
+    <hr>
+    <footer>FPT Polytechnic &copy; 2022.</footer>
+</body>
+</html>

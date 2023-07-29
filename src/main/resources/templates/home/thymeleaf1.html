@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout::dynamic(~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Thymeleaf 1</h3>
+    <i th:unless="${request.remoteUser}" style="color:red;">Chua dang nhap</i>
+    <ul th:if="${request.remoteUser}">
+        <li th:if="${request.isUserInRole('ADMIN')}">ADMIN</li>
+        <li th:if="${request.isUserInRole('USER')}">USER</li>
+        <li th:if="${request.isUserInRole('GUEST')}">GUEST</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      th:replace="~{/layout/layout::dynamic(~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Thymeleaf 2  springsecurity5</h3>
+    <i  sec:authorize="!isAuthenticated()" style="color:red;">Chua dang nhap</i>
+    <ul sec:authorize="isAuthenticated">
+        <li sec:authorize="hasRole('ADMIN')">ADMIN</li>
+        <li sec:authorize="hasRole('USER')">USER</li>
+        <li sec:authorize="hasRole('GUEST')">GUEST</li>
+    </ul>
+</body>
+</html>
